@@ -8,7 +8,7 @@ from pathlib import Path
 class EEGDataSender:
     def __init__(self, 
                  csv_path: str,
-                 fs: int = 1000,              # 采样率
+                 fs: int = 1024,              # 采样率
                  target_port: int = 9999,     # 目标端口
                  target_ip: str = '127.0.0.1' # 目标IP
                  ):
@@ -113,7 +113,7 @@ class EEGDataSender:
     def generate_test_csv(filename: str, 
                          duration: float = 10.0,    # 数据时长(秒)
                          num_channels: int = 32,     # 通道数
-                         fs: int = 1000,           # 采样率
+                         fs: int = 1024,           # 采样率
                          ):
         """生成测试用的CSV文件"""
         # 计算样本数
@@ -137,7 +137,7 @@ class EEGDataSender:
 # 使用示例
 if __name__ == "__main__":
     # 1. 首先生成测试数据文件
-    test_file = "test_eeg_data.csv"
+    test_file = r"C:\Users\yu\Desktop\JustFloatTest\test_eeg_data.csv"
     # EEGDataSender.generate_test_csv(
     #     filename=test_file,
     #     duration=10.0,      # 10秒数据
@@ -148,7 +148,7 @@ if __name__ == "__main__":
     # 2. 创建发送器实例
     sender = EEGDataSender(
         csv_path=test_file,
-        fs=1000,           # 1000Hz采样率
+        fs=1024,           # 1024Hz采样率
         target_port=9999,  # 目标端口
         target_ip='127.0.0.1'  # 目标IP
     )
